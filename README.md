@@ -1,21 +1,71 @@
-# Xenevis Example Bot
+# Simple Xenevis Telegram Bot
 
-This repository is a branch-based laboratory for real Telegram bots built with Xenevis SDK.
+This branch contains the first real SDK-native Telegram bot for Xenevis.
 
-`main` intentionally stays neutral and does not contain a bot implementation.
+The goal is to validate the public SDK path in a real bot:
 
-Each bot type lives on its own branch.
+```text
+Telegram update
+→ xenevis.telegram.polling()
+→ Xenevis Runtime
+→ handler
+→ xenevis.telegram.ui(...)
+→ Telegram delivery
+```
 
-## Bot branches
+## What this bot tests
 
-- `bot-simple-telegram` — minimal Telegram bot validating SDK-native polling, commands, callbacks, and UI
-- `bot-casedesk` — support cases, complaints, operator workflow
-- `bot-booking` — appointment booking and scheduling flows
-- `bot-lead-intake` — business lead intake and owner notification
-- `bot-ecommerce-returns` — returns, complaints, order support, evidence intake
-- `bot-community-manager` — group/community management and admin flows
-- `bot-personal-assistant` — personal tasks, notes, lightweight workflows
+- `xenevis.telegram.command("start")`
+- `xenevis.telegram.callback(...)`
+- `xenevis.telegram.ui(...)`
+- inline buttons
+- Runtime handler execution
+- Runtime output capture
+- Telegram rendering and polling delivery
 
-## Rule
+## What this bot must not do
 
-Every branch should behave like an independent real bot, not like an artificial test suite.
+This bot intentionally does not implement its own Telegram transport, router, polling loop, or `sendMessage` calls.
+
+Those responsibilities belong to the Xenevis SDK.
+
+## Files
+
+```text
+bot.py
+requirements.txt
+.gitignore
+```
+
+## Setup
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Create a local `.env` file and set the Telegram bot token variable expected by Xenevis SDK.
+
+Then run:
+
+```bash
+python bot.py
+```
+
+## Expected bot flow
+
+```text
+/start
+→ Start screen
+→ Help button
+→ Help screen
+→ About button
+→ About screen
+→ Back button
+→ Start screen
+```
+
+## Status
+
+Foundation validation branch. This is not a final product bot.
