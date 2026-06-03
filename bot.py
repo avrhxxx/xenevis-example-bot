@@ -2,12 +2,11 @@
 # Simple SDK-native Telegram bot built with Xenevis.
 
 import xenevis
-from xenevis.signals import ObserverNamespace
 from xenevis.telegram import button
 
 
-xenevis.runtime.signals.subscribe(
-    ObserverNamespace().console(format="native").handle
+xenevis.configure(
+    observer=xenevis.observer.console(format="native")
 )
 
 
