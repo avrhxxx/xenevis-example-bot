@@ -1,0 +1,1 @@
+git+https://github.com/avrhxxx/xenevis.git@stage1-runtime-package-structure#subdirectory=xenevis-sdk
