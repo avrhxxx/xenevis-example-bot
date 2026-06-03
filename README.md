@@ -8,6 +8,7 @@ Each bot type lives on its own branch.
 
 ## Bot branches
 
+- `bot-simple-telegram` — minimal Telegram bot validating SDK-native polling, commands, callbacks, and UI
 - `bot-casedesk` — support cases, complaints, operator workflow
 - `bot-booking` — appointment booking and scheduling flows
 - `bot-lead-intake` — business lead intake and owner notification
